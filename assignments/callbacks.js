@@ -41,9 +41,9 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback. 
-return cb (arr.length);
+  return cb(arr.length);
 };
-getLength(items, function(length) {
+getLength(items, function (length) {
   console.log(length);
 })
 // console.log(getLength());
@@ -59,30 +59,30 @@ function last(arr, cb) {
 
 // Option B:
 last(items, (cb) => {
-	console.log(cb);
+  console.log(cb);
 });
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-return cb(x, y);
+  return cb(x, y);
 }
 
-const add = (x,y) =>{
+const add = (x, y) => {
   return x + y;
 }
 // console.log(add(1, 3));
-console.log(sumNums(4,4, add))
+console.log(sumNums(4, 4, add))
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
   return cb(x, y);
 }
 
-const multiply = (x,y) =>{
+const multiply = (x, y) => {
   return x * y;
 };
-console.log(multiply(6,4));
-console.log(multiplyNums(6,4, multiply));
+console.log(multiply(6, 4));
+console.log(multiplyNums(6, 4, multiply));
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
@@ -95,19 +95,25 @@ function contains(item, list, cb) {
 }
 console.log(items.includes('Pencil'));
 
-// Jasmine
-// const result = list;
-// 	if (result === list) {
-// 		return true;
-// 	} else {
-// 		return false;
-// 	}
-// };
-console.log(contains());
 /* STRETCH PROBLEM */
+
+const duplicatesArray = [1, 1, 2, 3, 3, 4, 4, 4]
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  return cb(array);
 }
+
+console.log(removeDuplicates(duplicatesArray, function (array) {
+
+  let noDuplicatesArray = [];
+  array.forEach(item => {
+    if (!noDuplicatesArray.includes(item)) {
+      noDuplicatesArray.push(item);
+    }
+
+  });
+  return noDuplicatesArray;
+}));
